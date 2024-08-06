@@ -1,6 +1,5 @@
-- 👋 Hi, I’m @PanoramicGIT
+- 👋 Hi, I’m @OramicGIT
 - 👀 I’m interested in Programming
-- 🌱 I’m currently learning Python 
 - 📫 How to reach me puhistdos@gmail.com
 
 
