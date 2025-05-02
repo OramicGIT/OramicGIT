@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Личная визитка</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #0d0d0d;
+      color: #e0e0e0;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+
+    a {
+      color: #A8E10C;
+      text-decoration: none;
+    }
+
+    nav {
+      background-color: #111;
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid #222;
+    }
+
+    nav a {
+      color: #A8E10C;
+      font-weight: bold;
+      padding: 0.5rem;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #222;
+      border-radius: 5px;
+    }
+
+    header {
+      background-color: #A8E10C;
+      color: #000;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    section {
+      padding: 2rem 1rem;
+      max-width: 960px;
+      margin: auto;
+      position: relative;
+    }
+
+    section.background {
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: white;
+      text-shadow: 0 0 5px #000;
+    }
+
+    h2 {
+      color: #A8E10C;
+    }
+
+    /* Карусель */
+    .carousel-container {
+      position: relative;
+      max-width: 600px;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 0 10px #A8E10C;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+      user-select: none;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      display: block;
+    }
+
+    .carousel-buttons {
+      display: flex;
+      justify-content: center;
+      margin-top: 0.5rem;
+      gap: 1rem;
+    }
+
+    .carousel-buttons button {
+      background-color: #A8E10C;
+      border: none;
+      padding: 0.5rem 1rem;
+      color: #000;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .youtube-placeholder, .discord-placeholder {
+      width: 100%;
+      max-width: 560px;
+      height: 315px;
+      background: #1f1f1f;
+      color: #aaa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px dashed #A8E10C;
+      margin: 1rem auto;
+      text-align: center;
+      padding: 1rem;
+      border-radius: 10px;
+    }
+
+    .server-info, .about {
+      background: rgba(0, 0, 0, 0.6);
+      border-left: 5px solid #A8E10C;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 8px;
+    }
+
+    #readme {
+      background: #1a1a1a;
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      white-space: pre-wrap;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem 1rem;
+      color: #888;
+      border-top: 1px solid #222;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#about">Обо мне</a>
+    <a href="#gallery">Галерея</a>
+    <a href="#video">Видео</a>
+    <a href="#discord">Discord</a>
+    <a href="#server">Сервер</a>
+    <a href="#readme-section">README</a>
+  </nav>
+
+  <header>
+    <h1>Привет! 👋</h1>
+    <p>Я — Oramic (Или же Арсен). Добро пожаловать на мою цифровую визитку!</p>
+  </header>
+
+  <!-- ОБО МНЕ -->
+  <section id="about" class="background" style="background-image: url('bg.jpg');">
+    <!-- Замените 'background-about.jpg' на свою картинку -->
+    <div class="about">
+      <h2>👤 Обо мне</h2>
+      <p>Я разработчик, ютубер, аниматор и просто человек, который любит создавать. Здесь вы найдёте информацию о моих проектах, сервере и контактах.</p>
+      <p>Если хочешь узнать больше — загляни в README ниже или свяжись со мной через Discord (oramic)!</p>
+    </div>
+  </section>
+
+  <!-- ГАЛЕРЕЯ -->
+  <section id="gallery">
+    <h2>🖼 Галерея</h2>
+    <div class="carousel-container">
+      <div class="carousel-track" id="carousel-track">
+        <div class="carousel-slide"><img src="p1.jpg" alt="Фото 1"></div>
+        <div class="carousel-slide"><img src="p2.jpg" alt="Фото 2"></div>
+        <div class="carousel-slide"><img src="s1.png" alt="Скриншот 1"></div>
+        <div class="carousel-slide"><img src="s2.png" alt="Скриншот 2"></div>
+        <div class="carousel-slide"><img src="s3.png" alt="Скриншот 3"></div>
+      </div>
+    </div>
+    <div class="carousel-buttons">
+      <button onclick="prevSlide()">← Назад</button>
+      <button onclick="nextSlide()">Вперёд →</button>
+    </div>
+  </section>
+
+  <!-- ВИДЕО -->
+  <section id="video">
+    <h2>📹 Видео</h2>
+    <div class="youtube-placeholder">
+     <h2>Coming soon</h2>
+    </div>
+  </section>
+
+  <!-- DISCORD -->
+  <section id="discord">
+    <h2>📡 Discord</h2>
+    <div class="discord-placeholder">
+     <iframe src="https://discord.com/widget?id=1354546511203139830&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+    </div>
+  </section>
+
+  <!-- СЕРВЕР -->
+  <section id="server" class="background" style="background-image: url('bg.jpg');">
+    <!-- Замените 'background-server.jpg' на свою картинку -->
+    <div class="server-info">
+      <h2>🖥 Мой Discord Сервер</h2>
+      <p><strong>Название сервера:</strong> Королевство Oramic</p>
+      <p><strong>Ссылка:</strong> https://discord.gg/MG9gPqVtCV</p>
+      <p>Уютное комьюнити, и своя экономика. Заходи!</p>
+    </div>
+  </section>
+
+  <!-- README -->
+  <section id="readme-section">
+    <h2>📄 README</h2>
+    <div id="readme">Загрузка README.md...</div>
+  </section>
+
+  <footer>
+    &copy; 2025 — Визитка от Oramic. 💚 Сделано с любовью и лаймом.
+  </footer>
+
+  <!-- JS: Загрузка README и Карусель -->
+  <script>
+    fetch('README.md')
+      .then(response => response.text())
+      .then(md => {
+        document.getElementById('readme').textContent = md;
+      })
+      .catch(() => {
+        document.getElementById('readme').textContent = "Не удалось загрузить README.md";
+      });
+
+    // Карусель
+    let index = 0;
+    const track = document.getElementById('carousel-track');
+    const slides = document.querySelectorAll('.carousel-slide');
+
+    function updateCarousel() {
+      track.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    function nextSlide() {
+      index = (index + 1) % slides.length;
+      updateCarousel();
+    }
+
+    function prevSlide() {
+      index = (index - 1 + slides.length) % slides.length;
+      updateCarousel();
+    }
+  </script>
+</body>
+</html>
