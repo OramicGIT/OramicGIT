@@ -2,662 +2,171 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=400, initial-scale=1.0">
     <title>OramiX | Инновации и Проекты</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --ms-blue: #0078d4;
-            --ms-blue-dark: #0056b3;
-            --ms-yellow: #ffb900;
-            --ms-green: #7fba00;
-            --ms-red: #f25022;
-            --ms-light: #f3f6fb;
-            --ms-light-gray: #f0f0f0;
-            --ms-dark: #222;
-            --ms-shadow: 0 8px 32px 0 rgba(0,0,0,0.18), 0 1.5px 6px var(--ms-blue);
-            --ms-shadow-card: 0 4px 24px 0 rgba(0,120,212,.14),0 1.5px 6px var(--ms-blue);
-            --ms-radius: 22px;
-            --ms-radius-card: 18px;
-            --glass-blur: blur(15px);
-            --glass-bg: rgba(255,255,255,0.6);
-            --glass-border: 1.5px solid rgba(200,210,255,0.33);
-        }
-        * { margin:0; padding:0; box-sizing: border-box;}
-        html { scroll-behavior:smooth; }
         body {
-            font-family:'Roboto',Segoe UI,sans-serif; 
+            font-family: 'Roboto', Segoe UI, sans-serif;
             background: linear-gradient(135deg,#e6eefe 0%,#f3f6fb 60%,#e7f0ff 100%);
-            color:var(--ms-dark);
-            line-height:1.7;
+            color: #222;
+            margin: 0;
             min-height: 100vh;
         }
-        a { color:var(--ms-blue); text-decoration:none; transition:.2s;}
-        a:hover { color:var(--ms-blue-dark); text-decoration:underline;}
-        .top-bar {
-            backdrop-filter: var(--glass-blur);
-            background:linear-gradient(90deg,rgba(33,33,33,0.93) 60%,rgba(0,120,212,0.92) 100%);
-            color:#fff;
-            padding:8px 32px;
-            font-size:1.07em;
-            display:flex; justify-content:space-between; align-items:center;
-            border-bottom: 2px solid #444;
-            letter-spacing:.02em;
-            border-radius:0 0 18px 18px;
-            box-shadow: var(--ms-shadow);
-        }
-        .top-bar a { color:#fff; margin-left:18px; font-weight:bold;}
-        .top-bar a:first-child { margin-left:0;}
-        .top-bar a:hover { color:var(--ms-yellow);}
-        nav {
-            background:var(--glass-bg); box-shadow:var(--ms-shadow);
-            padding:22px 52px 20px 52px; border-bottom:2px solid #eee;
-            display:flex; justify-content:space-between; align-items:center;
-            z-index: 1000; border-radius:0 0 var(--ms-radius) var(--ms-radius);
-            backdrop-filter: var(--glass-blur);
-        }
-        nav .logo-text {
-            display:flex;align-items:center;font-weight:bold;font-size:2.2em;color:var(--ms-dark);
-            letter-spacing: -0.5px;
-        }
-        nav .logo-text span { color:var(--ms-blue); margin-left:-2px; }
-        .oramix-logo {
-            display:inline-flex; width:44px; height:44px;
-            border-radius:14px; overflow:hidden; margin-right:15px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.14);
-            border: 2.5px solid #dbeeff;
-            background:var(--glass-bg);
-            backdrop-filter: var(--glass-blur);
-        }
-        .oramix-logo.large { width:120px; height:120px; border-radius:28px; margin: 0 auto 18px auto;}
-        .oramix-logo-square {
-            width:50%; height:50%; float:left; border-radius:10px; margin:5px; z-index:1;
-            box-shadow:0 2px 7px 0 rgba(0,0,0,0.08);
-        }
-        .oramix-logo-square:nth-child(1){background:var(--ms-red);}
-        .oramix-logo-square:nth-child(2){background:var(--ms-green);}
-        .oramix-logo-square:nth-child(3){background:var(--ms-blue);}
-        .oramix-logo-square:nth-child(4){background:var(--ms-yellow);}
-        nav ul { list-style:none; display:flex; }
-        nav ul li { margin-left:38px;}
-        nav ul li a { color:#444; font-weight:500; position:relative; padding:6px 0;}
-        nav ul li a:hover { color:#000;}
-        nav ul li a::after {
-            content:''; display:block; position:absolute; left:0; bottom:-5px; width:0; height:3px;
-            background:var(--ms-blue); transition:width 0.3s;
-            border-radius: 2px;
-        }
-        nav ul li a:hover::after { width:100%; }
-        .hero {
-            background:linear-gradient(93deg, var(--ms-blue) 60%, var(--ms-blue-dark) 100%);
-            color:#fff; padding:100px 24px 80px 24px;
-            text-align:center; border-bottom:6px solid var(--ms-blue-dark);
-            position:relative; overflow:hidden;
-            border-radius:0 0 var(--ms-radius) var(--ms-radius);
-            box-shadow: 0 9px 40px 8px #0078d412;
-        }
-        .hero::before {
-            content:""; position:absolute; top:0; left:0; width:100%; height:100%;
-            background:radial-gradient(circle at 30% 60%,rgba(255,255,255,0.15) 0,rgba(0,0,0,0) 70%);
-            z-index:0;
-        }
-        .hero > * { position:relative; z-index:1;}
-        .hero h1 { font-size:3.7em; font-weight:300; margin-bottom:18px; letter-spacing:-2px;}
-        .hero p { font-size:1.38em; max-width:820px; margin:0 auto 39px auto;}
-        .hero .btn {
-            display:inline-block; background:rgba(255,255,255,0.96); color:var(--ms-blue);
-            padding:15px 42px; border-radius:10px; font-weight:800;
-            box-shadow:0 4px 22px rgba(0,0,0,0.13); transition:.2s;
-            font-size:1.18em;
-            border:none;
-        }
-        .hero .btn:hover { background:var(--ms-light); color:var(--ms-blue-dark);}
-        .section-header {
-            text-align:center; padding:65px 18px 38px 18px;
-        }
-        .section-header h2 { font-size:2.6em; color:var(--ms-dark); font-weight:300;}
-        .section-header p { font-size:1.17em; color:#555; max-width:800px; margin:0 auto;}
-        .container {
-            max-width:1200px; margin:0 auto; padding:0 20px;
-            display:grid; grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); gap:36px 28px;
-            padding-bottom:65px;
-        }
-        .card {
-            background:var(--glass-bg); 
-            border:var(--glass-border); 
-            border-radius:var(--ms-radius-card);
-            box-shadow:var(--ms-shadow-card); 
-            padding:38px 34px 32px 34px; text-align:center;
-            transition:transform 0.23s, box-shadow 0.23s, background 0.19s;
-            position:relative; overflow:hidden;
-            backdrop-filter: var(--glass-blur);
-        }
-        .card::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(60deg,rgba(0,120,212,0.035) 40%,rgba(255,255,255,.09) 100%);
-            opacity: 0.8;
-            z-index: 0;
-            pointer-events: none;
-        }
-        .card > * {
-            position: relative;
-            z-index: 1;
-        }
-        .card:hover {
-            transform:translateY(-10px) scale(1.031);
-            box-shadow:0 16px 38px rgba(0,120,212,.13),0 1.5px 6px var(--ms-blue-dark);
-            background:rgba(255,255,255,0.93);
-        }
-        .card .project-icon-placeholder {
-            width:92px;height:92px; background-color:#f6f7fb; margin:0 auto 22px auto;
-            border-radius:18px; display:flex; align-items:center; justify-content:center;
-            font-size:3em; color:#666; text-shadow:1px 1px 2px rgba(0,0,0,0.12);
-            box-shadow: 0 2px 14px rgba(0,120,212,0.09);
-        }
-        .card .project-icon-placeholder.oc-logo {
-            background:linear-gradient(45deg, var(--ms-blue), var(--ms-blue-dark));
-            color:#fff; font-size:2.2em; font-weight:bold;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        .card .project-icon-placeholder.fl {
-            background:linear-gradient(60deg,#8e92f7,#00a4ef);
-            color:#fff; font-size:2.4em; font-weight:bold;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        .card .project-icon-placeholder.setup {
-            background:linear-gradient(45deg,#f25022,#ffb900);
-            color:#fff; font-size:2.6em; font-weight:900;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        .card .project-icon-placeholder.phun {
-            background:linear-gradient(45deg,#9c27b0,#00a4ef);
-            color:#fff; font-size:2.8em; font-weight:900;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        .card .project-icon-placeholder.sync {
-            background:linear-gradient(60deg, #00b09b 60%, #96c93d 100%);
-            color:#fff; font-size:2.6em; font-weight:900;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        .card .project-icon-placeholder.guard {
-            background:linear-gradient(60deg, #ff7b92 0%, #FF416C 80%);
-            color:#fff; font-size:2.6em; font-weight:900;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        .card h3 { font-size:1.56em; color:var(--ms-blue); margin-bottom:16px; font-weight:600;}
-        .card p { color:#444; margin-bottom:19px; font-size:1.08em;}
-        .card .btn {
-            display:inline-block; background:var(--ms-blue); color:#fff;
-            padding:11px 27px; border-radius:8px; font-weight:700; font-size:1.05em; transition:.2s;
-            box-shadow: 0 2px 9px rgba(0,120,212,0.13);
-            border:none;
-        }
-        .card .btn:hover { background:var(--ms-blue-dark); box-shadow: 0 4px 18px rgba(0,120,212,0.22);}
-        .project-detail {
-            background:var(--glass-bg); 
-            padding:65px 22px; margin-top:38px;
-            border-top:2px solid #e6efff; box-shadow:inset 0 3px 22px rgba(0,120,212,0.05);
-            border-bottom: 2px solid #e6efff;
-            border-radius: var(--ms-radius-card);
-            backdrop-filter: var(--glass-blur);
-            margin-bottom: 40px;
-        }
-        .project-detail .container { display:block; text-align:left;}
-        .project-detail h2 { 
-            text-align:left; margin-bottom:30px; color:var(--ms-blue);
-            font-size: 2.2em; font-weight: 500;
-        }
-        .project-detail p { margin-bottom:1.5em; color:#444; font-size:1.13em;}
-        .project-detail ul { list-style:disc; margin-left:30px; margin-bottom:1.5em; color:#555;}
-        .project-detail ul li { margin-bottom:0.6em; line-height: 1.6;}
-        .project-detail code {
-            background-color: #eef;
-            padding: 2px 6px;
-            border-radius: 6px;
-            font-family: 'Consolas', monospace;
-            color: #0056b3;
-            display: block;
-            white-space: pre-wrap;
-            margin: 15px 0;
-            border: 1px solid #dee;
-        }
-        .project-detail .btn { margin-right: 15px; margin-bottom: 10px;}
-
         .logo-download-section {
-            text-align:center; padding:48px 22px 50px 22px; background:var(--glass-bg);
-            border-top:2px solid #e6efff;
-            border-bottom:2px solid #e6efff;
-            border-radius: var(--ms-radius-card);
-            margin: 48px 0 48px 0;
-            box-shadow: 0 4px 28px 0 rgba(0,120,212,0.09);
-            backdrop-filter: var(--glass-blur);
+            margin: 0 auto;
+            max-width: 960px;
+            padding: 56px 18px 72px 18px;
+            background: rgba(255,255,255,0.85);
+            border-radius: 32px;
+            box-shadow: 0 4px 32px 0 rgba(0,120,212,0.14);
+            display: flex;
+            gap: 44px;
+            align-items: center;
+            margin-top: 54px;
         }
-        .logo-download-section h3 { font-size:2.1em; margin-bottom:20px; color:#222;}
-        .logo-download-section .download-btn {
-            display:inline-block; background:var(--ms-blue); color:#fff;
-            padding:15px 36px; border-radius:9px; font-weight:800; font-size:1.13em; transition:.2s; margin-top:28px;
-            box-shadow: 0 2px 16px rgba(0,120,212,0.13);
-            border:none;
+        .logo-download-content {
+            flex: 1;
         }
-        .logo-download-section .download-btn:hover { background:var(--ms-blue-dark); box-shadow: 0 4px 20px rgba(0,120,212,0.23);}
-        .flim-chat-section {
-            background:linear-gradient(120deg, #eaf2fd 60%, #e7f0ff 100%);
-            border-top:2px solid #d6e9ff; padding:44px 0 56px 0;
-            border-bottom: 2px solid #d6e9ff;
-            border-radius: var(--ms-radius-card);
-            margin: 32px 0 32px 0;
+        .logo-download-section h3 {
+            font-size: 2em;
+            margin-bottom: 20px;
         }
-        .flim-chat-box {
-            max-width:550px; margin:0 auto; background:var(--glass-bg);
-            border:var(--glass-border); border-radius:16px; box-shadow:0 1px 16px #0078d420;
-            padding:26px 25px 20px 25px;
-            backdrop-filter: var(--glass-blur);
+        .logo-download-section p {
+            font-size: 1.1em;
+            margin-bottom: 18px;
         }
-        .flim-chat-box h4 { 
-            color:var(--ms-blue); margin-bottom:15px; 
-            font-size: 1.27em; text-align: center; border-bottom: 1px dashed #eee; padding-bottom: 10px;
+        .download-btn {
+            display: inline-block;
+            background: #0078d4;
+            color: #fff;
+            padding: 18px 40px;
+            border-radius: 13px;
+            font-weight: 800;
+            font-size: 1.16em;
+            border: none;
+            margin-top: 18px;
+            cursor: pointer;
+            box-shadow: 0 2px 14px rgba(0,120,212,0.14);
+            transition: background 0.18s, box-shadow 0.18s;
         }
-        #flim-messages { 
-            min-height:120px; max-height: 250px;
-            overflow-y: auto;
-            font-size:1.0em; margin-bottom:16px;
-            border: 1px solid #e6eefe; padding: 12px; border-radius: 10px;
-            background-color: #fcfcfc;
+        .download-btn:hover {
+            background: #0056b3;
+            box-shadow: 0 4px 20px rgba(0,120,212,0.22);
         }
-        #flim-messages div { margin-bottom: 8px;}
-        .flim-user { color:var(--ms-blue-dark); font-weight:700;}
-        .flim-bot { color:var(--ms-green); font-weight: 700;}
-        .flim-bot.thinking { color: #f25022; animation: thinkingPulse 1s infinite alternate;}
-        @keyframes thinkingPulse {
-            from { opacity: 1; }
-            to { opacity: 0.6; }
+        .oramix-logo-demo {
+            width: 160px;
+            height: 160px;
+            background: #fff;
+            border-radius: 48px;
+            box-shadow: 0 4px 32px 0 rgba(0,120,212,0.13);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
         }
-        #flim-input {
-            width:calc(72% - 10px);
-            padding:12px 16px;
-            border-radius:8px;
-            border:1.5px solid #bbb;
-            font-size: 1.04em;
-            transition: border-color 0.2s, box-shadow 0.2s;
-            background:rgba(255,255,255,0.98);
+        .oramix-bars {
+            display: flex;
+            gap: 13px;
         }
-        #flim-input:focus {
-            border-color: var(--ms-blue);
-            box-shadow: 0 0 0 2px rgba(0,120,212,0.14);
-            outline: none;
+        .oramix-bar {
+            width: 22px;
+            height: 94px;
+            border-radius: 16px;
+            background: #ccc;
         }
-        .flim-chat-box button[type="submit"] {
-            background:var(--ms-blue);color:#fff;font-weight:bold;
-            padding:12px 23px;
-            margin-left:11px;
-            border:none;border-radius:8px;cursor:pointer;
-            transition: background 0.2s, box-shadow 0.2s;
-            font-size: 1.09em;
-            box-shadow: 0 1px 8px #0078d420;
-        }
-        .flim-chat-box button[type="submit"]:hover {
-            background:var(--ms-blue-dark);
-            box-shadow: 0 2px 9px rgba(0,120,212,0.17);
-        }
-        footer {
-            background:linear-gradient(90deg,#232a3f 80%,var(--ms-blue-dark) 100%);
-            color:#d9e6f7; padding:44px 14px 22px 14px; text-align:center;
-            font-size:1.09em; border-top:2px solid #444;
-            letter-spacing:.01em;
-            border-radius: var(--ms-radius) var(--ms-radius) 0 0;
-            box-shadow: 0 -2px 16px #0078d410;
-        }
-        footer .links { margin-bottom:18px;}
-        footer .links a { color:#b8c9e7; margin:0 14px;}
-        footer .links a:hover { color:#fff;}
-        @media (max-width: 950px) {
-            nav { flex-direction:column; align-items:flex-start; padding:14px 15px;}
-            nav ul { flex-direction:column; width:100%; margin-top:10px;}
-            nav ul li { margin:9px 0; width:100%;}
-            nav ul li a { display:block; padding:11px 0;}
-            nav ul li a::after { display:none;}
-            .container { grid-template-columns:1fr;}
-            .section-header { padding:42px 8px 22px 8px;}
-            .section-header h2 { font-size:2em;}
-            .hero h1 { font-size:2.1em;}
-            .hero p { font-size:1.08em;}
-            .flim-chat-box { padding: 20px 11px;}
-            #flim-input { width: 67%;}
-            .flim-chat-box button[type="submit"] { padding: 12px 15px;}
+        .oramix-bar.bar1 { background: #f25022; }
+        .oramix-bar.bar2 { background: #7fba00; }
+        .oramix-bar.bar3 { background: #0078d4; }
+        .oramix-bar.bar4 { background: #ffb900; }
+        @media (max-width: 900px) {
+            .logo-download-section {
+                flex-direction: column;
+                gap: 22px;
+                align-items: flex-start;
+            }
+            .oramix-logo-demo {
+                margin: 0 auto;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="top-bar">
-        <div class="left-nav">
-            <a href="https://www.microsoft.com/ru-ru/" target="_blank" rel="noopener">Microsoft</a>
-            <a href="#">OramiX</a>
-        </div>
-        <div class="right-nav">
-            <a href="#contact">Войти</a>
-            <a href="#">Поиск</a>
-        </div>
-    </div>
-    <nav>
-        <a href="#home" class="logo-text">
-            <div class="oramix-logo">
-                <div class="oramix-logo-square"></div>
-                <div class="oramix-logo-square"></div>
-                <div class="oramix-logo-square"></div>
-                <div class="oramix-logo-square"></div>
-            </div>
-            Orami<span>X</span>
-        </a>
-        <ul>
-            <li><a href="#home">Главная</a></li>
-            <li><a href="#about">О нас</a></li>
-            <li><a href="#projects">Проекты</a></li>
-            <li><a href="#contact">Контакты</a></li>
-        </ul>
-    </nav>
-    <header class="hero" id="home">
-        <h1>OramiX: Где Инновации Встречаются с Простотой</h1>
-        <p>OramiX — ваш цифровой мост между современными технологиями и удобством. Мы создаём инструменты, которые делают технологии красивыми, простыми и доступными для всех — с вдохновением от Fluent и Rectify11.</p>
-        <a href="#projects" class="btn">Изучить проекты</a>
-    </header>
-    <main>
-        <section id="about" class="section-header">
-            <h2>О Компании OramiX</h2>
-            <p><b>OramiX</b> — команда энтузиастов, стремящихся упростить технологии и сделать их доступнее каждому. Мы создаём не просто программы — мы строим цифровые экосистемы, объединяя людей и устройства, автоматизируя рутину и открывая новые горизонты красоты.</p>
-            <p style="margin-top: 30px; font-style: italic; color: #666;">"Инновации, доступные каждому" — это не просто слоган, а наш основной принцип.</p>
-        </section>
-
-        <section id="projects" class="section-header">
-            <h2>Наши Инновационные Проекты</h2>
-            <p>В портфолио OramiX — только реализованные и развиваемые продукты для разных задач, вдохновлённые Microsoft, Linux и эстетикой Fluent и Rectify11.</p>
-        </section>
-        <div class="container">
-            <div class="card">
-                <div class="project-icon-placeholder oc-logo">OS</div>
-                <h3>OramiX System</h3>
-                <p>Минималистичная система на базе ядра Linux для Windows-пользователей. Современный LiveCD, автоматизация, обучение и повседневные задачи в духе Fluent и Rectify11.</p>
-                <a href="#oramixsystem-detail" class="btn">Узнать больше</a>
-            </div>
-            <div class="card">
-                <div class="project-icon-placeholder setup">S</div>
-                <h3>O-Setup-SRV</h3>
-                <p>Генератор и сервер батч-установщиков. Создавайте .bat-файлы для быстрой установки программ и автоматизации работы.</p>
-                <a href="#osetup-detail" class="btn">Подробнее</a>
-            </div>
-            <div class="card">
-                <div class="project-icon-placeholder fl">F</div>
-                <h3>FlimClient</h3>
-                <p>FlimClient — клиент для входа по Discord bot token и общения как бот (Fun and Jokes). Не чат-бот, а именно “весёлый” клиент для Discord — для экспериментов и развлечения.</p>
-                <a href="#flim-detail" class="btn">Подробнее</a>
-            </div>
-            <div class="card">
-                <div class="project-icon-placeholder phun">Ph</div>
-                <h3>PhunLite</h3>
-                <p>Минималистичный движок для 2D/3D-графики и мини-игр с минимумом ресурсов. Оптимален для быстрого прототипирования.</p>
-                <a href="#phun-detail" class="btn">Подробнее</a>
-            </div>
-            <div class="card">
-                <div class="project-icon-placeholder sync">⇄</div>
-                <h3>SyncFlow</h3>
-                <p>Инструмент для синхронизации файлов и папок между устройствами и облаком, с гибкими правилами автоматизации.</p>
-                <a href="#syncflow-detail" class="btn">Подробнее</a>
-            </div>
-            <div class="card">
-                <div class="project-icon-placeholder guard">🛡️</div>
-                <h3>SafeGuard</h3>
-                <p>Решение для защиты вашей конфиденциальности и данных в Windows: шифрование, безопасное удаление, защита от угроз.</p>
-                <a href="#safeguard-detail" class="btn">Подробнее</a>
-            </div>
-        </div>
-
-        <section id="oramixsystem-detail" class="project-detail">
-            <div class="container">
-                <h2>OramiX System: Linux для Windows-пользователей</h2>
-                <p><b>OramiX System</b> — это минималистичная современная ОС на ядре Linux с дизайном в стиле Fluent и Rectify11, запускается как LiveCD в Windows или VM. Не DOS, а лёгкая, красивая Linux-экосистема для автоматизации, обучения и everyday-задач.</p>
-                <ul>
-                    <li><b>CLI- и GUI:</b> Удобство командной строки и аккуратной графической оболочки.</li>
-                    <li><b>Автоматизация:</b> Bash-скрипты, интеграция с утилитами OramiX, расширяемость.</li>
-                    <li><b>Совместимость:</b> Быстрый запуск на ПК и в виртуалках.</li>
-                    <li><b>Обучение и эксперименты:</b> Для изучения Linux, автоматизации и безопасных тестов.</li>
-                    <li><b>LiveCD:</b> Не требует установки, всегда быстро и удобно.</li>
-                </ul>
-                <p>Следите за обновлениями на GitHub и тестируйте!</p>
-                <a href="link-to-oramixsystem-livecd-download.iso" target="_blank" class="btn" rel="noopener noreferrer">Скачать OramiX System LiveCD</a>
-                <a href="https://github.com/OramicGIT/OramiX-System" target="_blank" class="btn" rel="noopener noreferrer" style="margin-left: 15px;">Репозиторий GitHub</a>
-            </div>
-        </section>
-        <section id="osetup-detail" class="project-detail">
-            <div class="container">
-                <h2>O-Setup-SRV: Генератор Батч-Установщиков</h2>
-                <p><b>O-Setup-SRV</b> — инструмент для создания .bat-установщиков Windows для быстрой автоматизации развёртывания ПО.</p>
-                <ul>
-                    <li><b>Создание .bat-файлов:</b> Быстрое создание скриптов для установки программ.</li>
-                    <li><b>Массовое развёртывание:</b> Локально и через интернет.</li>
-                    <li><b>Безопасность:</b> Проверка подписи скриптов.</li>
-                    <li><b>Веб-интерфейс:</b> Управление библиотекой установщиков.</li>
-                </ul>
-                <code>@echo off<br>
-                call o-setup-srv /install Chrome Office7 AdobeReader<br>
-                pause<br></code>
-                <a href="https://github.com/OramicGIT/O-Setup-SRV" target="_blank" class="btn" rel="noopener">Открыть репозиторий</a>
-            </div>
-        </section>
-        <section id="flim-detail" class="project-detail">
-            <div class="container">
-                <h2>FlimClient: Дискорд-клиент для ботов (Fun & Jokes)</h2>
-                <p>FlimClient — это не чат-бот, а клиент для входа по Discord bot token и общения как <b>бот</b> — для фана, шуток и экспериментов. Позволяет смотреть, как выглядит чат от лица бота, отправлять сообщения и тестировать реакции.</p>
-                <ul>
-                    <li><b>Вход как бот:</b> Используйте Discord token и общайтесь как бот.</li>
-                    <li><b>Fun and Jokes:</b> Не предназначен для реального управления сервером, только для развлечения и экспериментов!</li>
-                    <li><b>Простой интерфейс:</b> Вдохновлён Fluent и Rectify11 — плавные анимации, скругления, “стеклянные” элементы.</li>
-                </ul>
-                <a href="https://github.com/OramicGIT/FlimClient" class="btn" target="_blank" rel="noopener">Открыть репозиторий</a>
-            </div>
-        </section>
-        <section id="phun-detail" class="project-detail">
-            <div class="container">
-                <h2>PhunLite: Минималистичный 2D/3D-движок</h2>
-                <p>PhunLite — лёгкий движок для быстрого прототипирования игр и визуализаций, в стиле Fluent и с простым API.</p>
-                <ul>
-                    <li><b>Быстрое прототипирование:</b> Простые игры за минуты.</li>
-                    <li><b>Минимум ресурсов:</b> Легко работает даже на старых ПК.</li>
-                    <li><b>Кросс-совместимость:</b> Windows и OramiX System.</li>
-                    <li><b>Готовые шаблоны:</b> Учитесь на примерах.</li>
-                </ul>
-                <a href="https://github.com/OramicGIT/PhunLite" class="btn" target="_blank" rel="noopener">Открыть репозиторий</a>
-            </div>
-        </section>
-        <section id="syncflow-detail" class="project-detail">
-            <div class="container">
-                <h2>SyncFlow: Интеллектуальная Синхронизация</h2>
-                <p>SyncFlow — простое решение для синхронизации файлов и папок между устройствами и облаком, с автоматизацией и плавным интерфейсом.</p>
-                <ul>
-                    <li><b>Синхронизация с облаком и по сети</b></li>
-                    <li><b>Гибкие правила и исключения</b></li>
-                    <li><b>Автоматизация по расписанию</b></li>
-                </ul>
-                <a href="https://github.com/OramicGIT/SyncFlow" class="btn" target="_blank" rel="noopener">Открыть репозиторий</a>
-            </div>
-        </section>
-        <section id="safeguard-detail" class="project-detail">
-            <div class="container">
-                <h2>SafeGuard: Комплексная Защита</h2>
-                <p>SafeGuard — щит для ваших данных в Windows: шифрование, удаление без восстановления, защита от угроз — и всё это в эстетике Fluent.</p>
-                <ul>
-                    <li><b>Шифрование файлов</b></li>
-                    <li><b>Безопасное удаление</b></li>
-                    <li><b>Контроль доступа</b></li>
-                    <li><b>Обнаружение вредоносных программ</b></li>
-                </ul>
-                <a href="https://github.com/OramicGIT/SafeGuard" class="btn" target="_blank" rel="noopener">Открыть репозиторий</a>
-            </div>
-        </section>
-        <section class="flim-chat-section">
-            <div class="flim-chat-box">
-                <h4>FlimClient — Discord бот-клиент (Fun)</h4>
-                <div id="flim-messages">
-                    <div><span class="flim-bot">FlimClient:</span> Привет! Здесь можно узнать о проектах OramiX или просто пошутить. Задайте вопрос!</div>
-                </div>
-                <form id="flim-chat-form" autocomplete="off">
-                    <input id="flim-input" type="text" placeholder="Введите сообщение..." required>
-                    <button type="submit">Отправить</button>
-                </form>
-            </div>
-        </section>
-        <section class="logo-download-section">
-            <div class="container">
-                <h3>Загрузить логотип OramiX</h3>
-                <p>Логотип OramiX — символ инноваций и дружелюбия. Используйте для презентаций, проектов и соцсетей. Прямо как на сайте!</p>
-                <div class="oramix-logo large" id="downloadable-logo" style="pointer-events: none;">
-                    <div class="oramix-logo-square"></div>
-                    <div class="oramix-logo-square"></div>
-                    <div class="oramix-logo-square"></div>
-                    <div class="oramix-logo-square"></div>
-                </div>
-                <button class="download-btn" onclick="downloadLogo()">Скачать логотип (PNG)</button>
-                <p style="margin-top: 15px; font-size: 0.95em; color: #666;">PNG 400x400, как на сайте. Прозрачный фон, яркие цвета.</p>
-            </div>
-        </section>
-        <section id="contact" class="section-header">
-            <h2>Свяжитесь с Нами</h2>
-            <p>Есть вопросы, идеи или хотите стать частью OramiX? Мы всегда рады новым предложениям и отзывам.</p>
-            <p>Почта: <a href="mailto:info@oramix.com">info@oramix.com</a></p>
-            <p style="margin-top: 15px;">
-                <a href="#" target="_blank" rel="noopener noreferrer">Twitter</a> |
-                <a href="#" target="_blank" rel="noopener noreferrer">Facebook</a> |
-                <a href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a> |
-                <a href="https://github.com/OramicGIT" target="_blank" rel="noopener noreferrer">GitHub</a>
+    <section class="logo-download-section">
+        <div class="logo-download-content">
+            <h3>Загрузить логотип OramiX</h3>
+            <p>
+                Логотип OramiX — символ инноваций и дружелюбия. Используйте для презентаций, проектов и соцсетей. Прямо как на сайте!
             </p>
-            <p style="margin-top: 20px; font-style: italic; color: #777;">Ответим в течение 24-48 часов. OramiX — команда энтузиастов, открытых к диалогу!</p>
-        </section>
-    </main>
-    <footer>
-        <div class="links">
-            <a href="#" rel="noopener noreferrer">Политика конфиденциальности</a> |
-            <a href="#" rel="noopener noreferrer">Условия использования</a> |
-            <a href="#projects" rel="noopener noreferrer">Карта сайта</a>
+            <button class="download-btn" onclick="downloadLogo()">Скачать логотип (PNG)</button>
+            <p style="margin-top: 15px; font-size: 0.96em; color: #666;">
+                PNG 400x400, как на сайте. Прозрачный фон, яркие цвета.
+            </p>
         </div>
-        <p>&copy; 2025 OramiX. Все права защищены. Inspired by Microsoft Fluent, Rectify11, Windows 11.</p>
-    </footer>
+        <div class="oramix-logo-demo" aria-label="OramiX логотип">
+            <div class="oramix-bars">
+                <div class="oramix-bar bar1"></div>
+                <div class="oramix-bar bar2"></div>
+                <div class="oramix-bar bar3"></div>
+                <div class="oramix-bar bar4"></div>
+            </div>
+        </div>
+    </section>
     <script>
-        // Генерация PNG — как на сайте, а не Microsoft Logo
-        async function downloadLogo() {
-            const canvas = document.createElement('canvas');
-            canvas.width = 400;
-            canvas.height = 400;
-            const ctx = canvas.getContext('2d');
-            ctx.clearRect(0,0,canvas.width,canvas.height);
-            // Fluent-style shadow
-            ctx.save();
-            ctx.shadowColor = "#b7d7fa";
-            ctx.shadowBlur = 32;
-            ctx.fillStyle = "#fff";
-            ctx.fillRect(36,36,328,328);
-            ctx.restore();
+    // Генерация PNG лого: 4 вертикальные полосы в скругленном белом квадрате, как на сайте
+    async function downloadLogo() {
+        const canvas = document.createElement('canvas');
+        canvas.width = 400;
+        canvas.height = 400;
+        const ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            // OramiX Logo Squares
-            const colors = ["#f25022", "#7fba00", "#0078d4", "#ffb900"];
-            const squareSize = 164;
-            const offset = 36;
-            // Top-left
-            ctx.fillStyle = colors[0];
-            ctx.beginPath();
-            ctx.roundRect(offset, offset, squareSize, squareSize, 29);
-            ctx.fill();
-            // Top-right
-            ctx.fillStyle = colors[1];
-            ctx.beginPath();
-            ctx.roundRect(offset + squareSize + 8, offset, squareSize, squareSize, 29);
-            ctx.fill();
-            // Bottom-left
-            ctx.fillStyle = colors[2];
-            ctx.beginPath();
-            ctx.roundRect(offset, offset + squareSize + 8, squareSize, squareSize, 29);
-            ctx.fill();
-            // Bottom-right
-            ctx.fillStyle = colors[3];
-            ctx.beginPath();
-            ctx.roundRect(offset + squareSize + 8, offset + squareSize + 8, squareSize, squareSize, 29);
-            ctx.fill();
+        // Скруглённый белый квадрат (фон иконки)
+        ctx.save();
+        ctx.shadowColor = "#b7d7fa";
+        ctx.shadowBlur = 24;
+        ctx.fillStyle = "#fff";
+        roundRect(ctx, 70, 70, 260, 260, 54);
+        ctx.fill();
+        ctx.restore();
 
-            // Outer Fluent glass
-            ctx.lineWidth = 7;
-            ctx.strokeStyle = "rgba(0,120,212,0.19)";
-            ctx.beginPath();
-            ctx.roundRect(22,22,356,356,38);
-            ctx.stroke();
-
-            const dataURL = canvas.toDataURL('image/png');
-            const link = document.createElement('a');
-            link.href = dataURL;
-            link.download = 'oramix_logo.png';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
+        // Цвета линий
+        const colors = ["#f25022", "#7fba00", "#0078d4", "#ffb900"];
+        // Рисуем 4 вертикальные линии
+        const lineWidth = 38;
+        const lineHeight = 170;
+        const spacing = 25;
+        const startX = 100;
+        const startY = 110;
+        for (let i = 0; i < 4; i++) {
+            ctx.fillStyle = colors[i];
+            roundRect(ctx, startX + i * (lineWidth + spacing), startY, lineWidth, lineHeight, 18);
+            ctx.fill();
         }
-        // FlimClient demo-chat
-        document.getElementById('flim-chat-form').addEventListener('submit', function(e){
-            e.preventDefault();
-            const input = document.getElementById('flim-input');
-            const msg = input.value.trim();
-            if(!msg) return;
-            const messages = document.getElementById('flim-messages');
-            messages.innerHTML += `<div><span class="flim-user">Вы:</span> ${msg}</div>`;
-            input.value = '';
-            messages.scrollTop = messages.scrollHeight;
-            const botThinkingDiv = document.createElement('div');
-            botThinkingDiv.classList.add('flim-bot', 'thinking');
-            botThinkingDiv.textContent = 'FlimClient: Печатает...';
-            messages.appendChild(botThinkingDiv);
-            messages.scrollTop = messages.scrollHeight;
-            setTimeout(()=>{
-                botThinkingDiv.remove();
-                messages.innerHTML += `<div><span class="flim-bot">FlimClient:</span> ${flimBotReply(msg)}</div>`;
-                messages.scrollTop = messages.scrollHeight;
-            }, Math.random() * 1200 + 600);
-        });
-        function flimBotReply(q){
-            q = q.toLowerCase();
-            if(q.includes('привет') || q.includes('hello')) {
-                const replies = ['Привет! Чем могу помочь сегодня?', 'Здравствуйте! Как я могу быть полезен?', 'Привет! Задайте вопрос или пошутим?'];
-                return replies[Math.floor(Math.random() * replies.length)];
-            }
-            if(q.includes('бат') || q.includes('batch') || q.includes('установ')) {
-                return 'Для генерации батч-установщика используйте O-Setup-SRV. Всё просто и безопасно.';
-            }
-            if(q.includes('phun')) {
-                return 'PhunLite — наш минималистичный 2D/3D-движок для быстрого прототипирования игр.';
-            }
-            if(q.includes('oramix system') || q.includes('oramixsystem') || q.includes('ос')) {
-                return 'OramiX System — Linux для Windows-пользователей, с красивым Fluent-дизайном!';
-            }
-            if(q.includes('syncflow') || q.includes('синхрон')) {
-                return 'SyncFlow — синхронизируй файлы между устройствами, всё просто!';
-            }
-            if(q.includes('safeguard') || q.includes('защит')) {
-                return 'SafeGuard — защита файлов, шифрование, удаление без восстановления. Всё для безопасности!';
-            }
-            if(q.includes('discord') || q.includes('бот') || q.includes('token')) {
-                return 'FlimClient — это клиент для входа как Discord-бота по токену. Только для фана и шуток!';
-            }
-            if(q.includes('шутка') || q.includes('joke')) {
-                return 'Почему программисты не любят природу? В ней слишком много багов!';
-            }
-            if(q.length > 120) {
-                return 'Ваш вопрос слишком длинный. Пожалуйста, короче!';
-            }
-            const defaultReplies = [
-                'Я могу рассказать о проектах OramiX или просто пошутить! Что интересует?',
-                'Хочешь узнать про OramiX System или попробовать FlimClient для Discord?',
-                'Не стесняйся, спрашивай — или расскажу шутку!',
-                'OramiX — это не только технологии, но и немного веселья ; )'
-            ];
-            return defaultReplies[Math.floor(Math.random() * defaultReplies.length)];
+
+        // Функция для скруглённых прямоугольников
+        function roundRect(ctx, x, y, w, h, r) {
+            ctx.beginPath();
+            ctx.moveTo(x + r, y);
+            ctx.lineTo(x + w - r, y);
+            ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+            ctx.lineTo(x + w, y + h - r);
+            ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+            ctx.lineTo(x + r, y + h);
+            ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+            ctx.lineTo(x, y + r);
+            ctx.quadraticCurveTo(x, y, x + r, y);
+            ctx.closePath();
         }
+
+        const dataURL = canvas.toDataURL('image/png');
+        const link = document.createElement('a');
+        link.href = dataURL;
+        link.download = 'oramix_logo.png';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
     </script>
 </body>
 </html>
