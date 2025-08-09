@@ -1,11 +1,224 @@
-HTTP/1.1 503 Service Unavailable
-Retry-After: 3600
-Content-Type: text/html
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OramicGIT | GitHub Profile Card</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2d72d9;
+      --accent: #fae100;
+      --bg: #f4f8fb;
+      --card: #fff;
+      --text: #222;
+      --border: #e1e4e8;
+      --shadow: 0 2px 10px rgba(0,0,0,0.07);
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Roboto', 'Montserrat', Arial, sans-serif;
+    }
+    .container {
+      max-width: 760px;
+      margin: 40px auto;
+      background: var(--card);
+      box-shadow: var(--shadow);
+      border-radius: 16px;
+      padding: 2rem 2.5rem;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    .avatar {
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(45,114,217,0.09);
+      width: 120px;
+      height: 120px;
+    }
+    .title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.3rem;
+      color: var(--primary);
+      margin: 0 0 0.3em 0;
+    }
+    .subtitle {
+      color: #555;
+      font-size: 1.1rem;
+      margin-bottom: 0.6em;
+    }
+    section {
+      margin-bottom: 2.2em;
+    }
+    h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.3rem;
+      color: var(--primary);
+      margin-top: 1.6em;
+      margin-bottom: 0.7em;
+      letter-spacing: 0.02em;
+    }
+    ul, .tech-list {
+      padding-left: 1.1em;
+    }
+    .tech-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8em;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .tech-list li {
+      background: #e7f0fa;
+      color: var(--primary);
+      padding: 0.3em 0.8em;
+      border-radius: 8px;
+      font-size: 1em;
+      font-weight: 500;
+    }
+    .projects {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+    }
+    .project-card {
+      background: #f7fafc;
+      border-left: 5px solid var(--primary);
+      border-radius: 8px;
+      padding: 1em 1.2em;
+      box-shadow: 0 1px 5px rgba(45,114,217,0.04);
+      transition: box-shadow 0.2s;
+    }
+    .project-card:hover {
+      box-shadow: 0 4px 12px rgba(45,114,217,0.13);
+    }
+    .project-title {
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.2em;
+    }
+    .contacts a, .contacts span {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+      margin-right: 1em;
+      transition: color 0.2s;
+    }
+    .contacts a:hover {
+      color: var(--accent);
+    }
+    .footer {
+      text-align: center;
+      color: #888;
+      font-size: 0.95em;
+      margin-top: 2.5em;
+      padding-bottom: 1em;
+    }
+    @media (max-width: 600px) {
+      .container { padding: 1.2rem 0.7rem; }
+      header { flex-direction: column; gap: 1rem; }
+      .avatar { width: 90px; height: 90px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img src="https://github.com/OramicGIT.png" alt="GitHub Avatar" class="avatar">
+      <div>
+        <div class="title">OramicGIT</div>
+        <div class="subtitle">Привет 👋 Я (OramiX) энтузиаст программирования, анимации и видео!</div>
+        <div class="contacts">
+          <a href="mailto:puhistdos@gmail.com" title="Email">📧 Email</a>
+          <span title="Discord">💬 Discord: <strong>oramic</strong></span>
+          <a href="https://github.com/OramicGIT" title="GitHub">🐙 GitHub</a>
+        </div>
+      </div>
+    </header>
+    <section>
+      <h2>Обо мне</h2>
+      <p>
+        Я увлекаюсь <b>программированием</b>, <b>анимацией</b> и <b>созданием видео</b>. Люблю экспериментировать с новыми технологиями, открытым исходным кодом и делиться результатами своего творчества. В этом репозитории вы найдёте мои <i>конфиг-файлы</i> и полезные наработки для GitHub-профиля.
+      </p>
+    </section>
+    <section>
+      <h2>Мои проекты</h2>
+      <div class="projects" id="projects-list">
+        <!-- Проекты загружаются динамически -->
+        <div>Загрузка проектов...</div>
+      </div>
+    </section>
+    <section>
+      <h2>Технологии</h2>
+      <ul class="tech-list">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>Git &amp; GitHub</li>
+        <li>Adobe After Effects</li>
+        <li>Видео-монтаж</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Интересы</h2>
+      <ul>
+        <li>Open Source &amp; совместная работа</li>
+        <li>Веб-разработка</li>
+        <li>Графика и анимация</li>
+        <li>Создание видео и медиа-контента</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Связаться со мной</h2>
+      <div class="contacts">
+        <a href="mailto:puhistdos@gmail.com">puhistdos@gmail.com</a>
+        <span>oramic (Discord)</span>
+        <a href="https://github.com/OramicGIT">GitHub</a>
+      </div>
+    </section>
+    <div class="footer">
+      &copy; OramicGIT, 2025 &mdash; <a href="https://github.com/OramicGIT/OramicGIT" style="color:inherit;">GitHub Profile</a>
+    </div>
+  </div>
+  <script>
+    // Получение публичных репозиториев пользователя с GitHub API
+    const username = 'OramicGIT';
+    const projectsContainer = document.getElementById('projects-list');
 
-<html>
-  <head><title>OramiX Personal Card</title></head>
-  <body>
-    <h1>Мы обновляем сайт</h1>
-    <p>Сайт временно недоступен из-за технических работ. Повторите попытку позже.</p>
-  </body>
-</html>
+    fetch(`https://api.github.com/users/${username}/repos?per_page=100&sort=updated`)
+      .then(response => response.json())
+      .then(repos => {
+        if (!Array.isArray(repos) || repos.length === 0) {
+          projectsContainer.innerHTML = '<div>Нет опубликованных проектов.</div>';
+          return;
+        }
+        projectsContainer.innerHTML = '';
+        repos.forEach(repo => {
+          // Пропуск архивных/форкнутых репозиториев
+          if (repo.archived || repo.fork) return;
+          const card = document.createElement('div');
+          card.className = 'project-card';
+          card.innerHTML = `
+            <div class="project-title">${repo.full_name}</div>
+            <div>${repo.description ? repo.description : 'Без описания.'}</div>
+            <a href="${repo.html_url}" target="_blank">Репозиторий →</a>
+          `;
+          projectsContainer.appendChild(card);
+        });
+        if (projectsContainer.innerHTML.trim() === '') {
+          projectsContainer.innerHTML = '<div>Нет собственных проектов для отображения.</div>';
+        }
+      })
+      .catch(() => {
+        projectsContainer.innerHTML = '<div>Ошибка загрузки проектов с GitHub.</div>';
+      });
+  </script>
+</body>
+  </html>
