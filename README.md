@@ -1,10 +1,7 @@
- О себе
-👋 Привет, я @OramicGIT
-👀 Интересы: программирование, анимация, создание видео
-📫 Контакты: puhistdos@gmail.com, Discord: oramic
-📁 О репозитории
-Этот репозиторий содержит конфиги для моего профиля GitHub.
+About me
+👋 Hi, I'm @OramicGIT
+👀 Interests: programming, animations
+📫 Contact me: oramixteam@proton.me
 
-🚀 Активность
-Участвую в open source
-Экспериментирую с HTML, анимацией и видео
+🚀 Аctivity
+Experimenting with coding, animation and videos.
