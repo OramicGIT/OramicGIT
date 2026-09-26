@@ -1,7 +1,8 @@
-About me
+About me:
+
 👋 Hi, I'm @OramicGIT
 👀 Interests: programming, animations
-📫 Contact me: oramixteam@proton.me
+📫 Contact me: oramixalyt@gmail.com
 
-🚀 Аctivity
+🚀 Аctivity:
 Experimenting with coding, animation and videos.
